@@ -1,4 +1,4 @@
-package RetailShop;
+
 
 /**
  * Suppliers represents the supplier that provides the tools to the inventory

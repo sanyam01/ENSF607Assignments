@@ -1,4 +1,4 @@
-package RetailShop;
+
 
 /**
  * Class Items represents an item in the inventory. It has an item name, ID,
