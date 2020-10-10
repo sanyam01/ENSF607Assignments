@@ -35,7 +35,8 @@ public class Shop {
 
 		FileManager fm = new FileManager();
 		supplierList = fm.loadList("Suppliers.txt");
-		inventory = fm.loadInventory("items.txt", supplierList);
+		inventory = fm.loadInventory("items.txt");
+		inventory.addSuppliers(supplierList);
 
 	}
 

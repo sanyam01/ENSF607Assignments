@@ -1,5 +1,4 @@
 
-
 /**
  * Class Items represents an item in the inventory. It has an item name, ID,
  * quantity, price, and the supplier info.
@@ -60,7 +59,8 @@ public class Items {
 		this.setItemPrice(itemPrice);
 		this.setItemQuantity(itemQuantity);
 		this.setSupplierID(supplierID);
-		this.sup = sup;
+		// this.sup = sup;
+		this.sup = null;
 
 	}
 
@@ -96,7 +96,7 @@ public class Items {
 			this.setItemQuantity(this.getItemQuantity() - 1);
 		if (this.getItemQuantity() < 40) {
 			int initiallyItem = this.getItemQuantity();
-			ol = new OrderLines(this.getItemName(), 50 - initiallyItem, this.getSup().getSupplierName());
+			ol = new OrderLines(this, 50 - initiallyItem);
 			order.addOrderLine(ol);
 			this.setItemQuantity(50);
 			s = "\nNew order line generated. Updated Order for the day is:\n\n";
@@ -109,13 +109,28 @@ public class Items {
 			s = s + "Order Id : " + order.getOrderId() + "\n" + "Order date : " + order.getDate() + "\n\n";
 		}
 		for (OrderLines k : order.getOrderLines()) {
-			s = s + "ItemName: " + k.getItem() + ", Quantity ordered: " + k.getAmount() + ", Supplier name: "
-					+ k.getSupplier() + "\n";
+			s = s + "ItemName: " + k.getItem().getItemName() + ", Quantity ordered: " + k.getAmount()
+					+ ", Supplier name: " + k.getItem().getSup().getSupplierName() + "\n";
 		}
 
 		s = s + "\n....................................................................\n\n";
 		return s;
 
+	}
+
+	/**
+	 * addSupplier adds assigns the Supplier to the member variable of type
+	 * Suppliers by iterating through the list of suppliers and matching the
+	 * supplier ids.
+	 * 
+	 * @param list represents an object of SupplierList
+	 */
+	public void addSupplier(SupplierList list) {
+		for (Suppliers s : list.getList()) {
+			if (s.getSupplierID() == this.getSupplierID())
+				this.sup = s;
+
+		}
 	}
 
 	public int getItemID() {

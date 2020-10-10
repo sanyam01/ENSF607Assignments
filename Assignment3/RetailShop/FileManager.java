@@ -87,15 +87,12 @@ public class FileManager {
 	 * createItems reads the items info from the text file passed to it as arguments
 	 * and creates the list of the items
 	 * 
-	 * It also maps the supplier id of the ietms with the supplier list and
-	 * alloactes the corresponding suppliers to the items
 	 * 
 	 * @param fileName text file for reading items
-	 * @param list     represents list of suppliers
 	 * @return list of items
 	 * @throws IOException
 	 */
-	public ArrayList<Items> createItems(String fileName, SupplierList list) throws IOException {
+	public ArrayList<Items> createItems(String fileName) throws IOException {
 
 		ArrayList<Items> itemsList = new ArrayList<Items>();
 
@@ -112,13 +109,7 @@ public class FileManager {
 			int supplierId = Integer.parseInt(param[4]);
 			Suppliers sup = null;
 
-			for (Suppliers s : list.getList()) {
-				if (s.getSupplierID() == supplierId)
-					sup = s;
-
-			}
-
-			// creating supplier object
+			// creating items object
 			Items it = new Items(id, param[1], quantity, price, supplierId, sup);
 			itemsList.add(it);
 
@@ -133,7 +124,7 @@ public class FileManager {
 	 * 
 	 * @param fileName represents the name of the text file from which suppliers
 	 *                 info is to be read
-	 * @return the list of the suppliers
+	 * @return the SupplierList
 	 * @throws IOException
 	 */
 	public SupplierList loadList(String fileName) throws IOException {
@@ -148,14 +139,13 @@ public class FileManager {
 	 * 
 	 * @param fileName represents the name of the text file from which items info is
 	 *                 to be read
-	 * @param list     represents the supplier list
-	 * @return the list of the items
+	 * @return the Inventory
 	 * @throws IOException
 	 */
 
-	public Inventory loadInventory(String fileName, SupplierList list) throws IOException {
+	public Inventory loadInventory(String fileName) throws IOException {
 
-		Inventory theInventory = new Inventory(createItems(fileName, list));
+		Inventory theInventory = new Inventory(createItems(fileName));
 		return theInventory;
 	}
 }

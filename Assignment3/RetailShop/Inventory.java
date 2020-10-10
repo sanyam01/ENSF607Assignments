@@ -1,5 +1,4 @@
 
-
 import java.util.ArrayList;
 
 /**
@@ -67,6 +66,19 @@ public class Inventory {
 		}
 		return s;
 
+	}
+
+	/**
+	 * Iterates through all the items and passes the supplier list to the items for
+	 * mapping the supplier id of the items with the supplier list and allocates the
+	 * corresponding suppliers to the items
+	 * 
+	 * @param list represents the list of suppliers
+	 */
+	public void addSuppliers(SupplierList list) {
+		for (Items i : listItems) {
+			i.addSupplier(list);
+		}
 	}
 
 	public Order getTheOrder() {
