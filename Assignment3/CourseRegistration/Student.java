@@ -28,6 +28,12 @@ public class Student {
 
 		if (!(this.registrationLimit()))
 			return "Maximum Registration limit reached";
+		
+		for (Registration r: this.regList) {
+			if (r.getTheOffering().getSectionCap() == sectionCap && r.getTheOffering().getTheCourse().getCourseNum() == courseNum && r.getTheOffering().getTheCourse().getCourseName().contentEquals(courseName))
+				return "Course is already registered";
+				
+		}
 
 		ArrayList<Offering> theOffering = myCourse.getOfferingList();
 

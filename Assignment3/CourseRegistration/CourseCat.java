@@ -17,10 +17,14 @@ public class CourseCat {
 		// atleast
 		// sort of file from disc. So imagine this is the loaded from the database.
 		ArrayList<Course> imaginaryDB = new ArrayList<Course>();
-		imaginaryDB.add(new Course("Engg", 233));
-		imaginaryDB.add(new Course("Ensf", 607));
-		imaginaryDB.add(new Course("physics", 259));
-		imaginaryDB.add(new Course("Chemistry", 340));
+		imaginaryDB.add(new Course("A", 100));
+		imaginaryDB.add(new Course("B", 200));
+		imaginaryDB.add(new Course("C", 300));
+		imaginaryDB.add(new Course("D", 400));
+		imaginaryDB.add(new Course("E", 550));
+		imaginaryDB.add(new Course("F", 600));
+		imaginaryDB.add(new Course("G", 700));
+		
 
 		return imaginaryDB;
 	}
@@ -80,7 +84,7 @@ public class CourseCat {
 			operation = Integer.parseInt(input);
 			if (!((operation == 1) || (operation == 2)))
 				throw new ArithmeticException();
-		} catch (ArithmeticException e) {
+		} catch (Exception e) {
 			System.out.println("..........................................");
 			System.out.println("Invalid input. Please read below carfully");
 			System.out.println("..........................................");
@@ -176,7 +180,51 @@ public class CourseCat {
 		return null;
 
 	}
-	public void addCourse(BufferedReader reader) throws IOException {
+//	public void addCourse(BufferedReader reader) throws IOException {
+//		
+//		System.out.print("Enter the name of student for which registration is to be done");
+//		String studentName = reader.readLine();
+//		int studentID = -1000;
+//		System.out.print("Enter the id of the student : ");
+//		try {
+//			String studentIDString = reader.readLine();
+//			studentID = Integer.parseInt(studentIDString);
+//		}
+//		catch(NumberFormatException e) {
+//			System.out.println("\nInput is invalid. Input must be an integer\nPlease try again");
+//			return;
+//		}
+//		Student theStudent = this.getTheStudent(studentName, studentID);
+//		if (theStudent == null) {
+//			System.out.println("Student " + studentName + " with ID" + studentID + "not found");
+//			return;
+//		}
+//		
+//		System.out.print("Enter the name of course : ");
+//		String name = reader.readLine();
+//		System.out.print("Enter number of course : ");
+//		String courseNumString = reader.readLine();
+//		int courseNum = -1;
+//		int courseSectionNum = -1;
+//		try {
+//			courseNum = Integer.parseInt(courseNumString);
+//			System.out.print("Enter section name : ");
+//			String courseSectionString = reader.readLine();
+//			courseSectionNum = Integer.parseInt(courseSectionString);
+//		} catch (Exception e) {
+//			System.out.println("..............................................");
+//			System.out.println("\nInvalid input. Entered number is not integer");
+//			System.out.println("Please try again\n");
+//			System.out.println("..............................................");
+//			return;
+//		}
+//		
+//		
+//		System.out.println(theStudent.registerForCourse(this, name, courseNum, courseSectionNum));
+//		
+//	}
+	
+public void addCourse(ArrayList<Student> stu, BufferedReader reader) throws IOException {
 		
 		System.out.print("Enter the name of student for which registration is to be done");
 		String studentName = reader.readLine();
@@ -190,7 +238,12 @@ public class CourseCat {
 			System.out.println("\nInput is invalid. Input must be an integer\nPlease try again");
 			return;
 		}
-		Student theStudent = this.getTheStudent(studentName, studentID);
+		
+		Student theStudent = null;
+		for(Student s: stu) 
+			if (s.getStudentName().equals(studentName) && s.getStudentId() == studentID)
+				theStudent = s;
+				
 		if (theStudent == null) {
 			System.out.println("Student " + studentName + " with ID" + studentID + "not found");
 			return;
@@ -219,6 +272,7 @@ public class CourseCat {
 		System.out.println(theStudent.registerForCourse(this, name, courseNum, courseSectionNum));
 		
 	}
+
 	
 	public void removeCourse(BufferedReader reader) throws IOException {
 		
