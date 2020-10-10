@@ -1,4 +1,4 @@
-package CourseRegistration;
+
 
 public class Registration {
 

@@ -1,4 +1,4 @@
-package CourseRegistration;
+
 
 public class CourseRegistrationApp {
 	
@@ -13,8 +13,10 @@ public class CourseRegistrationApp {
 			cat.createOffering(myCourse, 2, 150);
 		}
 		
+		System.out.println(myCourse.getOfferingList().get(0).getTheCourse());
 		st1.registerForCourse(cat, "Engg", 233, 1);
-		System.out.println(myCourse.getOfferingList().get(0).getStudentList().get(0).getTheStudent().getStudentName());
+		//System.out.println(myCourse.getOfferingList().get(0).getStudentList().get(0).getTheStudent().getStudentName());
+		System.out.println(myCourse.getOfferingList().get(0).getTheCourse());
 		
 		
 	}

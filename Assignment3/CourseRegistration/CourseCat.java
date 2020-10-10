@@ -1,4 +1,3 @@
-package CourseRegistration;
 
 import java.util.ArrayList;
 
