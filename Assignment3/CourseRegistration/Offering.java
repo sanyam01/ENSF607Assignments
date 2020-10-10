@@ -23,6 +23,12 @@ public class Offering {
 		// in a section is met
 		studentList.add(reg);
 	}
+	
+	public void deleteRegistration(Registration reg) {
+		// TODO Auto-generated method stub
+		studentList.remove(reg);
+		
+	}
 
 	public int getSectionName() {
 		return sectionName;
@@ -71,5 +77,7 @@ public class Offering {
 	public void setStudentList(ArrayList<Registration> studentList) {
 		this.studentList = studentList;
 	}
+
+	
 
 }

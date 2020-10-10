@@ -20,6 +20,7 @@ public class CourseCat {
 		imaginaryDB.add(new Course("Engg", 233));
 		imaginaryDB.add(new Course("Ensf", 607));
 		imaginaryDB.add(new Course("physics", 259));
+		imaginaryDB.add(new Course("Chemistry", 340));
 
 		return imaginaryDB;
 	}
@@ -89,11 +90,12 @@ public class CourseCat {
 		if (operation == 1) {
 			System.out.print("Enter the name of the course : ");
 			String nameFirst = reader.readLine();
-			if (this.searchCat(nameFirst).get(0) == null) {
+			if (this.searchCat(nameFirst).size() == 0) {
 				System.out.println("No courses found for name  " + nameFirst);
 				return;
 			}
-			System.out.println("Courses foudn are : ");
+			System.out.println("Courses found are : ");
+			ArrayList<Course> listCourse = this.searchCat(nameFirst);
 			for (Course i : this.searchCat(nameFirst))
 				System.out.println(i.toString());
 		}
@@ -153,8 +155,6 @@ public class CourseCat {
 
 		String s = "";
 		
-		System.out.println("I am here");
-		System.out.println(" name is " + name);
 		for (Course cor : this.courseList)
 			for (Offering or : cor.getOfferingList())
 				for (Registration reg : or.getStudentList())
@@ -163,6 +163,106 @@ public class CourseCat {
 
 		return s;
 
+	}
+	
+	public Student getTheStudent(String name, int num) {
+		
+		for (Course cor : this.courseList)
+			for (Offering or : cor.getOfferingList())
+				for (Registration reg : or.getStudentList())
+					if (reg.getTheStudent().getStudentName().equals(name) && reg.getTheStudent().getStudentId() == num)
+						return reg.getTheStudent();
+
+		return null;
+
+	}
+	public void addCourse(BufferedReader reader) throws IOException {
+		
+		System.out.print("Enter the name of student for which registration is to be done");
+		String studentName = reader.readLine();
+		int studentID = -1000;
+		System.out.print("Enter the id of the student : ");
+		try {
+			String studentIDString = reader.readLine();
+			studentID = Integer.parseInt(studentIDString);
+		}
+		catch(NumberFormatException e) {
+			System.out.println("\nInput is invalid. Input must be an integer\nPlease try again");
+			return;
+		}
+		Student theStudent = this.getTheStudent(studentName, studentID);
+		if (theStudent == null) {
+			System.out.println("Student " + studentName + " with ID" + studentID + "not found");
+			return;
+		}
+		
+		System.out.print("Enter the name of course : ");
+		String name = reader.readLine();
+		System.out.print("Enter number of course : ");
+		String courseNumString = reader.readLine();
+		int courseNum = -1;
+		int courseSectionNum = -1;
+		try {
+			courseNum = Integer.parseInt(courseNumString);
+			System.out.print("Enter section name : ");
+			String courseSectionString = reader.readLine();
+			courseSectionNum = Integer.parseInt(courseSectionString);
+		} catch (Exception e) {
+			System.out.println("..............................................");
+			System.out.println("\nInvalid input. Entered number is not integer");
+			System.out.println("Please try again\n");
+			System.out.println("..............................................");
+			return;
+		}
+		
+		
+		System.out.println(theStudent.registerForCourse(this, name, courseNum, courseSectionNum));
+		
+	}
+	
+	public void removeCourse(BufferedReader reader) throws IOException {
+		
+		System.out.print("Enter the name of student for which registration is to be removed");
+		String studentName = reader.readLine();
+		int studentID = -1000;
+		System.out.print("Enter the id of the student : ");
+		try {
+			String studentIDString = reader.readLine();
+			studentID = Integer.parseInt(studentIDString);
+		}
+		catch(NumberFormatException e) {
+			System.out.println("\nInput is invalid. Input must be an integer\nPlease try again");
+			return;
+		}
+		Student theStudent = this.getTheStudent(studentName, studentID);
+		if (theStudent == null) {
+			System.out.println("Student " + studentName + " with ID" + studentID + "not found");
+			return;
+		}
+		
+		System.out.print("Enter the name of course : ");
+		String name = reader.readLine();
+		System.out.print("Enter number of course : ");
+		String courseNumString = reader.readLine();
+		int courseNum = -1;
+		//int courseSectionNum = -1;
+		try {
+			courseNum = Integer.parseInt(courseNumString);
+			//System.out.print("Enter section name : ");
+			//String courseSectionString = reader.readLine();
+			//courseSectionNum = Integer.parseInt(courseSectionString);
+		} catch (Exception e) {
+			System.out.println("..............................................");
+			System.out.println("\nInvalid input. Entered number is not integer");
+			System.out.println("Please try again\n");
+			System.out.println("..............................................");
+			return;
+		}
+		
+		
+		System.out.println(theStudent.deleteCourse(this, name, courseNum));
+		
+		
 	}
 
 	public ArrayList<Course> getCourseList() {
