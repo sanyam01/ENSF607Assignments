@@ -1,4 +1,4 @@
-1. To run the program, two text files names 'Suppliers.txt' and 'items.txt' should be in the same folder where java files are.
+1. To run the program, two text files named 'Suppliers.txt' and 'items.txt' should be in the same folder where java files are.
 2. Each time user presses 5, the item is automatically decreased by a quantity of 1. And the order is printed to the console.
 3. Class 'Shop' constructor passes the names for the text files that are to be read i.e. "Suppliers.txt' and 'items.txt'.
 4. After running the code, follow the instructions that will be displayed on the console.
