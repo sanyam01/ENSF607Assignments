@@ -1,5 +1,4 @@
 
-
 import java.util.ArrayList;
 
 public class Course {
@@ -37,7 +36,7 @@ public class Course {
 	public String toString() {
 		String st = "";
 		st+="\n";
-		st += courseName + " " + courseNum;
+		st += "Course name " + courseName + " with course number " + courseNum + "has following offering list :";
 		st += "\n";
 		for (Offering offering : offeringList) {
 			st += offering; // means u need to have a toString in offering

@@ -52,15 +52,15 @@ public class Offering {
 	public String toString() {
 		String st = "";
 		st = st + "\n";
-		st += "SectionName"  + sectionName + "SectionCap"  + sectionCap + "\n" + "\n";
+		st += "SectionName:"  + sectionName + " and SectionCap: "  + sectionCap + "\n" + "\n";
 		st += "Students in this section are :\n\n";
 		
-		for (Registration r : studentList) {
-			//here we get each student
-			st += "\n\n";
-			st = st+  r.getTheStudent() + "Grade.." + r.getGrade();
-		
-		}
+//		for (Registration r : studentList) {
+//			//here we get each student
+//			st += "\n\n";
+//			st = st+  r.getTheStudent() + "Grade.." + r.getGrade();
+//		
+//		}
 		return st;
 	}
 
