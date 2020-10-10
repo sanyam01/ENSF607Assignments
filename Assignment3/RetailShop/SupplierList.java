@@ -1,5 +1,4 @@
 
-
 import java.util.ArrayList;
 
 /**
@@ -25,6 +24,18 @@ public class SupplierList {
 	 */
 	public void addSupplier(Suppliers supplier) {
 		list.add(supplier);
+
+	}
+
+	/**
+	 * addItems calls the method of class Suppliers to add the list of the items to
+	 * each supplier it sells
+	 * 
+	 * @param itemList is a list of all the items
+	 */
+	public void addItems(ArrayList<Items> itemList) {
+		for (Suppliers s : this.list)
+			s.addItems(itemList);
 
 	}
 

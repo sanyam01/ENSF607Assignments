@@ -37,6 +37,7 @@ public class Shop {
 		supplierList = fm.loadList("Suppliers.txt");
 		inventory = fm.loadInventory("items.txt");
 		inventory.addSuppliers(supplierList);
+		supplierList.addItems(inventory.getListItems());
 
 	}
 
