@@ -21,7 +21,7 @@ public class CourseCat {
 		imaginaryDB.add(new Course("B", 200));
 		imaginaryDB.add(new Course("C", 300));
 		imaginaryDB.add(new Course("D", 400));
-		imaginaryDB.add(new Course("E", 550));
+		imaginaryDB.add(new Course("E", 500));
 		imaginaryDB.add(new Course("F", 600));
 		imaginaryDB.add(new Course("G", 700));
 		
@@ -107,7 +107,7 @@ public class CourseCat {
 		if (operation == 2) {
 			System.out.print("Enter the name of course : ");
 			String name = reader.readLine();
-			System.out.print("Enter number of course : ");
+			System.out.print("Enter the number of course : ");
 			String num = reader.readLine();
 			int numCourse = -1;
 			try {
@@ -148,9 +148,11 @@ public class CourseCat {
 		}
 
 		if ("".equals(this.getStudentCourses(name, numID)))
-			System.err.println("Student with name" + name + " and ID " + numID + " has no courses registered");
-		else
+			System.err.println("Student with name " + name + " and ID " + numID + " is not registered in any course");
+		else {
+			System.out.println("\nStudent is registered in following courses : ");
 			System.out.println(this.getStudentCourses(name, numID));
+		}
 
 	}
 
@@ -226,7 +228,7 @@ public class CourseCat {
 	
 public void addCourse(ArrayList<Student> stu, BufferedReader reader) throws IOException {
 		
-		System.out.print("Enter the name of student for which registration is to be done");
+		System.out.print("Enter the name of student for which registration is to be done : ");
 		String studentName = reader.readLine();
 		int studentID = -1000;
 		System.out.print("Enter the id of the student : ");
@@ -245,7 +247,7 @@ public void addCourse(ArrayList<Student> stu, BufferedReader reader) throws IOEx
 				theStudent = s;
 				
 		if (theStudent == null) {
-			System.out.println("Student " + studentName + " with ID" + studentID + "not found");
+			System.out.println("Student '" + studentName + "' with ID '" + studentID + "' not found");
 			return;
 		}
 		
@@ -276,7 +278,7 @@ public void addCourse(ArrayList<Student> stu, BufferedReader reader) throws IOEx
 	
 	public void removeCourse(BufferedReader reader) throws IOException {
 		
-		System.out.print("Enter the name of student for which registration is to be removed");
+		System.out.print("Enter the name of student for which registration is to be removed : ");
 		String studentName = reader.readLine();
 		int studentID = -1000;
 		System.out.print("Enter the id of the student : ");
@@ -290,7 +292,7 @@ public void addCourse(ArrayList<Student> stu, BufferedReader reader) throws IOEx
 		}
 		Student theStudent = this.getTheStudent(studentName, studentID);
 		if (theStudent == null) {
-			System.out.println("Student " + studentName + " with ID" + studentID + "not found");
+			System.out.println("Student " + studentName + " with ID" + studentID + " is not registered in any course");
 			return;
 		}
 		

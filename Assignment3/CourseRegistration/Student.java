@@ -56,9 +56,9 @@ public String deleteCourse(CourseCat courseCat, String courseName, int courseNum
 	for(Registration r:this.getRegList())
 		if(r.getTheOffering().getTheCourse().getCourseNum() == courseNum && r.getTheOffering().getTheCourse().getCourseName().contentEquals(courseName)) {
 			r.deleteRegistration();
-			return ("Course " + courseName + "course number " + courseNum + "successfully delted");
+			return ("Course " + courseName  + " " + courseNum + " has successfully been deleted");
 		}
-			return ("Course " + courseName + "course num" + courseNum +   "not found");
+			return ("Course " + courseName + " course num" + courseNum +   " not found");
 	}
 
 public void deleteRegistration(Registration reg) {

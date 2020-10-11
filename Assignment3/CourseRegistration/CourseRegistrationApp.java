@@ -12,7 +12,7 @@ public class CourseRegistrationApp {
 		ArrayList<Student> stu = new ArrayList<Student>();
 		Student st1 = new Student("Sara", 1);
 		stu.add(st1);
-		Student st2 = new Student("joe", 1);
+		Student st2 = new Student("Joe", 1);
 		Student st3 = new Student("Sanyam", 2);
 		Student st4 = new Student("Mike", 3);
 		stu.add(st2);
@@ -51,14 +51,14 @@ public class CourseRegistrationApp {
 		
 		Course myCourse5 = cat.searchCat("F",600);
 		if (myCourse5 != null) {
-			cat.createOffering(myCourse5, 4, 610);
-			cat.createOffering(myCourse5, 5, 620);
+			cat.createOffering(myCourse5, 11, 610);
+			cat.createOffering(myCourse5, 12, 620);
 		}
 		
 		Course myCourse6 = cat.searchCat("G",700);
 		if (myCourse6 != null) {
-			cat.createOffering(myCourse6, 4, 710);
-			cat.createOffering(myCourse6, 5, 720);
+			cat.createOffering(myCourse6, 13, 710);
+			cat.createOffering(myCourse6, 14, 720);
 		}
 		
 
@@ -69,11 +69,6 @@ public class CourseRegistrationApp {
 		st2.registerForCourse(cat, "C", 300, 320);
 		
 		st3.registerForCourse(cat, "D", 400, 420);
-		
-		//System.out.println(myCourse.getOfferingList().get(0).getTheCourse());
-		
-		// System.out.println(myCourse.getOfferingList().get(0).getStudentList().get(0).getTheStudent().getStudentName());
-		System.out.println(myCourse.getOfferingList().get(0).getTheCourse());
 
 		int num = 1;
 		while (num >= 1 && num <= 6) {

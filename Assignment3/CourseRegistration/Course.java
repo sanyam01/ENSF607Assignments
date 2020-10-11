@@ -36,7 +36,7 @@ public class Course {
 	public String toString() {
 		String st = "";
 		st+="\n";
-		st += "Course name " + courseName + " with course number " + courseNum + "has following offering list :";
+		st += "Course name " + courseName + " with course number " + courseNum + " has following offering list :";
 		st += "\n";
 		for (Offering offering : offeringList) {
 			st += offering; // means u need to have a toString in offering

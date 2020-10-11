@@ -25,7 +25,7 @@ public class Offering {
 	}
 	
 	public void deleteRegistration(Registration reg) {
-		// TODO Auto-generated method stub
+
 		studentList.remove(reg);
 		
 	}
@@ -58,15 +58,22 @@ public class Offering {
 	public String toString() {
 		String st = "";
 		st = st + "\n";
-		st += "SectionName:"  + sectionName + " and SectionCap: "  + sectionCap + "\n" + "\n";
-		st += "Students in this section are :\n\n";
+		st += "SectionName: "  + sectionName + " and SectionCap: "  + sectionCap + "\n" + "\n";
+		st += "Students in this section are : ";
 		
-//		for (Registration r : studentList) {
-//			//here we get each student
-//			st += "\n\n";
-//			st = st+  r.getTheStudent() + "Grade.." + r.getGrade();
-//		
-//		}
+		String check = "";
+		for (Registration r : studentList) {
+			if(r.getTheStudent() != null) {
+			//here we get each student
+			//st += "\n";
+			check = check +  r.getTheStudent();
+			}
+		
+		}
+		if("".equals(check)) {
+			check = "NONE";
+		}
+		st = st + check +  "\n";
 		return st;
 	}
 
