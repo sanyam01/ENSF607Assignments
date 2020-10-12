@@ -15,59 +15,71 @@ public class CourseRegistrationApp {
 		Student st2 = new Student("Joe", 1);
 		Student st3 = new Student("Sanyam", 2);
 		Student st4 = new Student("Mike", 3);
+		Student st5 = new Student("Pro", 4);
+		Student st6 = new Student("Yves", 5);
+		Student st7 = new Student("Stan", 6);
+		Student st8 = new Student("Neha", 7);
+		Student st9 = new Student("Sonia", 8);
+		Student st10 = new Student("Prince", 9);
+
 		stu.add(st2);
 		stu.add(st3);
 		stu.add(st4);
-		
+		stu.add(st5);
+		stu.add(st6);
+		stu.add(st7);
+		stu.add(st8);
+		stu.add(st9);
+		stu.add(st10);
+
 		Course myCourse = cat.searchCat("A", 100);
 		if (myCourse != null) {
 			cat.createOffering(myCourse, 1, 110);
 			cat.createOffering(myCourse, 2, 120);
 		}
-		
-		Course myCourse1 = cat.searchCat("B",200);
+
+		Course myCourse1 = cat.searchCat("B", 200);
 		if (myCourse1 != null) {
 			cat.createOffering(myCourse1, 3, 210);
 			cat.createOffering(myCourse1, 4, 220);
+			myCourse1.addPreRequisite(myCourse);
 		}
-		
-		Course myCourse2 = cat.searchCat("C",300);
+
+		Course myCourse2 = cat.searchCat("C", 300);
 		if (myCourse2 != null) {
 			cat.createOffering(myCourse2, 5, 310);
 			cat.createOffering(myCourse2, 6, 320);
 		}
-		
-		Course myCourse3 = cat.searchCat("D",400);
+
+		Course myCourse3 = cat.searchCat("D", 400);
 		if (myCourse3 != null) {
 			cat.createOffering(myCourse3, 7, 410);
 			cat.createOffering(myCourse3, 8, 420);
 		}
-		
-		Course myCourse4 = cat.searchCat("E",500);
+
+		Course myCourse4 = cat.searchCat("E", 500);
 		if (myCourse4 != null) {
 			cat.createOffering(myCourse4, 9, 510);
 			cat.createOffering(myCourse4, 10, 520);
 		}
-		
-		Course myCourse5 = cat.searchCat("F",600);
+
+		Course myCourse5 = cat.searchCat("F", 600);
 		if (myCourse5 != null) {
 			cat.createOffering(myCourse5, 11, 610);
 			cat.createOffering(myCourse5, 12, 620);
 		}
-		
-		Course myCourse6 = cat.searchCat("G",700);
+
+		Course myCourse6 = cat.searchCat("G", 700);
 		if (myCourse6 != null) {
 			cat.createOffering(myCourse6, 13, 710);
 			cat.createOffering(myCourse6, 14, 720);
 		}
-		
 
-		
 		st1.registerForCourse(cat, "A", 100, 120);
-		
+
 		st2.registerForCourse(cat, "B", 200, 220);
 		st2.registerForCourse(cat, "C", 300, 320);
-		
+
 		st3.registerForCourse(cat, "D", 400, 420);
 
 		int num = 1;
@@ -85,7 +97,7 @@ public class CourseRegistrationApp {
 
 			try {
 				read = reader.readLine();
-				num = Integer.parseInt(read);
+				num = Integer.parseInt(read.strip());
 				if (!(num >= 1 && num <= 6))
 					throw new NumberFormatException();
 			} catch (Exception e) {
@@ -95,7 +107,7 @@ public class CourseRegistrationApp {
 			}
 
 			switch (num) {
-			
+
 			case 1:
 				cat.searchCatalogueCourses(reader);
 				break;

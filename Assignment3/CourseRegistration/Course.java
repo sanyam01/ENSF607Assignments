@@ -7,7 +7,6 @@ public class Course {
 	private int courseNum;
 	private ArrayList<Course> preReq;
 	private ArrayList<Offering> offeringList;
-	
 
 	public Course(String courseName, int courseNum) {
 
@@ -28,14 +27,23 @@ public class Course {
 
 	}
 
+	/**
+	 * addPreRequisite adds the pre-requisite courses required for a course
+	 * 
+	 * @param preRequisite represents the pre-requisite required for a course
+	 */
+	public void addPreRequisite(Course preRequisite) {
+		preReq.add(preRequisite);
+	}
+
 	public String getCourseName() {
 		return courseName;
 	}
-	
+
 	@Override
 	public String toString() {
 		String st = "";
-		st+="\n";
+		st += "\n";
 		st += "Course name " + courseName + " with course number " + courseNum + " has following offering list :";
 		st += "\n";
 		for (Offering offering : offeringList) {
