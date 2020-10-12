@@ -7,4 +7,9 @@
 7. The design used to implement the Tool Shop is the one described in the lectures. Only difference is that between Order and OrderLines it is one way association instead of aggregation(It was told in lectures that aggregation can be changed to one way association).
 8. While searching for tool based on ID or name, it searches for the exact name or ID of the tool, if any partial name/id is searched, it will return Item not found.
 
+Precautions while testing
+
+1. Avoid putting space before and after while inputting integer values
+2. Input exact names of tools
+
  

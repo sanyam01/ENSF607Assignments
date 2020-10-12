@@ -64,7 +64,7 @@ public class menu {
 		System.out.print("Enter the ID of tool : ");
 		String id = reader.readLine();
 		try {
-			int idNum = Integer.parseInt(id);
+			int idNum = Integer.parseInt(id.strip());
 			System.out.println(theShop.searchToolID(idNum));
 		} catch (NumberFormatException e) {
 			System.out.println("No tool with such id exists");
@@ -105,7 +105,7 @@ public class menu {
 			} else {
 				System.out.print("Enter ID of the tool : ");
 				String toolID = reader.readLine();
-				int numID = Integer.parseInt(toolID);
+				int numID = Integer.parseInt(toolID.strip());
 				numberQuantities = theShop.checkQuantity(numID);
 			}
 
@@ -145,7 +145,7 @@ public class menu {
 		String checkDecrease = reader.readLine();
 		String printOrder = "";
 		try {
-			int inputDecrease = Integer.parseInt(checkDecrease);
+			int inputDecrease = Integer.parseInt(checkDecrease.strip());
 			if (!(inputDecrease == 2 || inputDecrease == 1))
 				throw new NumberFormatException();
 			if (inputDecrease == 1) {
@@ -156,7 +156,7 @@ public class menu {
 			} else {
 				System.out.print("Enter ID of the tool : ");
 				String toolID = reader.readLine();
-				int decreaseID = Integer.parseInt(toolID);
+				int decreaseID = Integer.parseInt(toolID.strip());
 				printOrder = theShop.decreaseQuantity(decreaseID);
 
 			}
@@ -191,7 +191,7 @@ public class menu {
 
 			try {
 				read = reader.readLine();
-				num = Integer.parseInt(read);
+				num = Integer.parseInt(read.strip());
 				if (!(num >= 1 && num <= 6))
 					throw new NumberFormatException();
 			} catch (Exception e) {
