@@ -74,14 +74,14 @@ public class Student {
 	 */
 	public String checkPreRequisite(ArrayList<Course> requisiteCourses) {
 		ArrayList<Course> listCourses = new ArrayList<Course>();
-		for (Course c : requisiteCourses)
-			System.out.println("There" + c.getCourseName());
+//		for (Course c : requisiteCourses)
+//			System.out.println("There" + c.getCourseName());
 		for (Registration g : this.getRegList()) {
 			listCourses.add(g.getTheOffering().getTheCourse());
-			System.out.println("here " + g.getTheOffering().getTheCourse().getCourseName());
+			//System.out.println("here " + g.getTheOffering().getTheCourse().getCourseName());
 		}
 		if (listCourses.containsAll(requisiteCourses)) {
-			System.out.println("I am here");
+//			System.out.println("I am here");
 			return "True";
 		}
 		return "Pre-requisite condition not met";

@@ -73,9 +73,11 @@ G			700
 
 6. Few registrations are already done in main for the 'four' students. Those can be commented.
 
-7. One student can only be registered in one offering of each course. 
+7. One student can only be registered in one offering of each course.
 
-6. If you enter any input wrong then you will have to perform that operation again. However, you will be continuously displayed with the menu until you press 6.
+8. When a course is returned, I have also returned its offerings and students. However it can be changed depending upon the specifications.
+
+9. If you enter any input wrong then you will have to perform that operation again. However, you will be continuously displayed with the menu until you press 6.
 
 **How code runs**
 
