@@ -34,7 +34,7 @@ public class Shop {
 	public Shop() throws IOException {
 
 		FileManager fm = new FileManager();
-		supplierList = fm.loadList("Suppliers.txt");
+		supplierList = fm.loadList("suppliers.txt");
 		inventory = fm.loadInventory("items.txt");
 		inventory.addSuppliers(supplierList);
 		supplierList.addItems(inventory.getListItems());
